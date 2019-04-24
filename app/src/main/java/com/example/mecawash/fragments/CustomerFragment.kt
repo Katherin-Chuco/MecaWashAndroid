@@ -1,4 +1,4 @@
-package com.example.mecawash.viewcontrollers.activities.viewcontrollers.fragments
+package com.example.mecawash.fragments
 
 
 import android.os.Bundle
