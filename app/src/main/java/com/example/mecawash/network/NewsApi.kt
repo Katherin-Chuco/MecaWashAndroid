@@ -10,13 +10,17 @@ class NewsApi{
 
 
         val baseUrl = "http://64.202.186.215/APIMekaWash"
-        var localsUrl = "$baseUrl/wamekawash/v4"
 
-        fun requestLocal(key: String,
-                         responseHandler: (LocalsResponse?) -> Unit,
-                         errorHandler: (ANError?) -> Unit) {
-            AndroidNetworking.get(NewsApi.localsUrl)
-                .addHeaders("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNoZW1hbG9uc285NiIsIm5iZiI6MTU1NTgwNTI4MiwiZXhwIjoxNTU1ODA4ODgyLCJpYXQiOjE1NTU4MDUyODIsImlzcyI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCIsImF1ZCI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCJ9.H-BVhRD784KpGOn46YSA3yroY9gEsTmyDFUfgsjc3gU")
+        //var localsUrl = "$baseUrl/wamekawash/v4"
+
+
+        fun getLocal(id: Int) : String{
+            return "${NewsApi.baseUrl}/wamekawash/v4/providers/$id/locals"
+        }
+
+        fun requestLocal(key: String, url: String, responseHandler: (LocalsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
+            AndroidNetworking.get(url)
+                .addHeaders("Authorization", key)
                 //.addQueryParameter("apiKey", key)
                 //.addQueryParameter("language", "en")
                 .setPriority(Priority.LOW)

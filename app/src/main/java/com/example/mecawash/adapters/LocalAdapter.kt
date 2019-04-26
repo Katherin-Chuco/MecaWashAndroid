@@ -11,11 +11,11 @@ import com.example.mecawash.R
 import com.example.mecawash.models.Local
 import kotlinx.android.synthetic.main.item_local.view.*
 
-class LocalAdapter(var locals: List<Local>, val context: Context) : RecyclerView.Adapter<LocalAdapter.ViewHolder>() {
+class LocalAdapter(var locals: ArrayList<Local> ) : RecyclerView.Adapter<LocalAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context)
+            LayoutInflater.from(parent?.context)
                 .inflate(R.layout.item_local, parent, false))
     }
 
@@ -44,4 +44,6 @@ class LocalAdapter(var locals: List<Local>, val context: Context) : RecyclerView
             }
         }
     }
+
+
 }
