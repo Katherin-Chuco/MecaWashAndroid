@@ -1,12 +1,13 @@
-package com.example.mecawash.viewcontrollers.activities.viewcontrollers.activities
+package com.example.mecawash.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mecawash.R
 
-class ProviderActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_provider)
+        setContentView(R.layout.activity_main)
     }
 }
