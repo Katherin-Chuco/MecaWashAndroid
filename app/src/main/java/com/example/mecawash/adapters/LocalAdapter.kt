@@ -30,13 +30,13 @@ class LocalAdapter(var locals: ArrayList<Local> ) : RecyclerView.Adapter<LocalAd
     class ViewHolder(localView: View) : RecyclerView.ViewHolder(localView) {
 
         val addressTextView = localView.addressTextView
-        val PunctuationTextView = localView.punctuationTextView
+        val PunctuationRatingBar = localView.punctuationRatingBar
         val articleLayout = localView.articleLocal
 
         fun updateFrom(local: Local) {
 
             addressTextView.text = local.Address
-            PunctuationTextView.text = local.Punctuation.toString()
+            PunctuationRatingBar.rating = local.Punctuation.toFloat()
 
             articleLayout.setOnClickListener { view ->
                 val context = view.context

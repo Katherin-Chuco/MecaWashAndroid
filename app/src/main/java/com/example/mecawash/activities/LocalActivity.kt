@@ -27,8 +27,7 @@ class LocalActivity : AppCompatActivity() {
 
     private val STRING_PREFERENCE = "Session"
     private val ACCOUNT_TOKEN = "userToken"
-    private val TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNoZW1hbG9uc285NiIsIm5iZiI6MTU1NjI4MTkxOSwiZXhwIjoxNTU2Mjg1NTE5LCJpYXQiOjE1NTYyODE5MTksImlzcyI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCIsImF1ZCI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCJ9.207Q8CbCRkErfvkeyTai1xtP12NQdx2JiGK4QPVmwxQ"
-
+    private val TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNoZW1hbG9uc285NiIsIm5iZiI6MTU1NjQ2MDI1MywiZXhwIjoxNTU2NDYzODUzLCJpYXQiOjE1NTY0NjAyNTMsImlzcyI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCIsImF1ZCI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCJ9.OkXDIjjoB_JvrYaxJLnU1IjOIbwMICMJzOEDEzGcHe4"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_local)
@@ -53,18 +52,18 @@ class LocalActivity : AppCompatActivity() {
     private fun handleResponse(response: LocalsResponse?) {
         val error = response!!.Error
         if (error.equals(true)) {
-            Log.d("CatchUp", response.Message)
+            Log.d("MecaWash", response.Message)
             return
         }
 
         locals = response.Data!!
-        Log.d("CatchUp", "Found ${locals.size} articles")
+        Log.d("MecaWash", "Found ${locals.size} locals")
         localsAdapter.locals = locals
         localsAdapter.notifyDataSetChanged()
     }
 
     private fun handleError(anError: ANError?) {
-        Log.d("CatchUp", anError!!.message)
+        Log.d("MecaWash", anError!!.message)
     }
 
 
