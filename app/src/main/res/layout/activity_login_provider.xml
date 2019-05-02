@@ -45,6 +45,7 @@
             android:inputType="textPassword"/>
 
     <Button
+            android:id="@+id/loginProviderButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
@@ -54,4 +55,16 @@
             android:text="INGRESAR"
             android:background="@color/colorPrimary"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText"/>
+
+    <Button
+            android:id="@+id/registerProviderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="15dp"
+            android:text="REGISTRAR"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/loginProviderButton"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
