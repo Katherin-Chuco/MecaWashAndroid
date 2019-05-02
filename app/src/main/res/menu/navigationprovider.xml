@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_provider_solicitud"
+            android:icon="@drawable/ic_notification"
+            android:title="@string/title_solicitudes"/>
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_provider_servios"
+            android:icon="@drawable/ic_product_black_24dp"
+            android:title="@string/title_servicios"/>
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_provider_clientes"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="@string/title_cliente"/>
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_provider_perfil"
+            android:icon="@mipmap/ic_local"
+            android:title="@string/title_perfil"/>
+</menu>

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mecawash.R
+import com.example.mecawash.activities.HomeProviderActivity
 import com.example.mecawash.models.Local
 import kotlinx.android.synthetic.main.item_local.view.*
 
@@ -40,7 +41,7 @@ class LocalAdapter(var locals: ArrayList<Local> ) : RecyclerView.Adapter<LocalAd
 
             articleLayout.setOnClickListener { view ->
                 val context = view.context
-                context.startActivity(Intent(context, this::class.java).putExtras(local.toBundle()))
+                context.startActivity(Intent(context, HomeProviderActivity::class.java).putExtras(local.toBundle()))
             }
         }
     }
