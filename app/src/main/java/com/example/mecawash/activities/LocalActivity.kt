@@ -25,9 +25,12 @@ class LocalActivity : AppCompatActivity() {
     lateinit var localsAdapter: LocalAdapter
     lateinit var localsLayoutManager: RecyclerView.LayoutManager
 
+    //SHARE PREFERENCE
+    val TOKEN: String = "Token"
     private val STRING_PREFERENCE = "Session"
-    private val ACCOUNT_TOKEN = "userToken"
-    private val TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNoZW1hbG9uc285NiIsIm5iZiI6MTU1NjQ2MDI1MywiZXhwIjoxNTU2NDYzODUzLCJpYXQiOjE1NTY0NjAyNTMsImlzcyI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCIsImF1ZCI6Imh0dHA6Ly82NC4yMDIuMTg2LjIxNS9BUElNZWthV2FzaCJ9.OkXDIjjoB_JvrYaxJLnU1IjOIbwMICMJzOEDEzGcHe4"
+    private val NOMBREPROVIDER = "NombreProvider"
+    private val PROVIDERID = "ProviderId"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_local)
@@ -38,12 +41,14 @@ class LocalActivity : AppCompatActivity() {
         localsRecyclerView.adapter = localsAdapter
         localsRecyclerView.layoutManager = localsLayoutManager
 
-        //COLOCARLO EN EL LOGIN
-        //var preferences : SharedPreferences = this.getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE)
+        val result = getSharedPreferences(STRING_PREFERENCE, MODE_PRIVATE)
+        var token = "Bearer " + result.getString(TOKEN, "")
+        var providerId = result.getInt(PROVIDERID,0);
+        var NameProvider = result.getString(NOMBREPROVIDER, "")
 
-        val url: String = NewsApi.getLocal(1)
+        val url: String = NewsApi.getLocal(providerId)
 
-        NewsApi.requestLocal(TOKEN,url,
+        NewsApi.requestLocal(token,url,
             {response -> handleResponse(response)},
             {error -> handleError(error)})
 

@@ -17,19 +17,19 @@ class NewsApi{
 
 
         val baseUrl = "http://64.202.186.215/APIMekaWash"
+        //val baseUrl = "http://localhost:50790"
 
-        var loginProviderUrl = "$baseUrl/wamekawash/v4/loginprovider"
+        var loginProviderUrl = "$baseUrl/wamekawash/v1/loginprovider"
 
         fun getLocal(id: Int) : String{
             return "${NewsApi.baseUrl}/wamekawash/v4/providers/$id/locals"
         }
 
         fun requestLocal(key: String, url: String, responseHandler: (LocalsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
+
             AndroidNetworking.get(url)
                 .addHeaders("Authorization", key)
-                //.addQueryParameter("apiKey", key)
-                //.addQueryParameter("language", "en")
-                .setPriority(Priority.LOW)
+                .setPriority(Priority.HIGH)
                 .setTag("MecaWashAndroid")
                 .build()
                 .getAsObject(LocalsResponse::class.java,
@@ -44,31 +44,25 @@ class NewsApi{
                     })
         }
 
-        fun requestLoginProvider(username: String, password: String, responseHandler: (LoginProviderResponse?)-> Unit, errorHandler: (ANError?) -> Unit){
+        fun requestLoginProvider(Username: String, Password: String, responseHandler: (LoginProviderResponse?)-> Unit, errorHandler: (ANError?) -> Unit){
 
-            val jsonObject = JSONObject()
-            try {
-                jsonObject.put("Username", username)
-                jsonObject.put("Password", password)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+
             var url = NewsApi.loginProviderUrl
             AndroidNetworking.post(url)
-                .addJSONObjectBody(jsonObject)
+                .addBodyParameter("Username", Username)
+                .addBodyParameter("Password", Password)
                 .setTag("MecaWashAndroid")
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(LoginProviderResponse::class.java,
-                    object : ParsedRequestListener<LoginProviderResponse> {
-                        override fun onResponse(response: LoginProviderResponse?) {
-                            responseHandler(response)
-                        }
+                .getAsObject(LoginProviderResponse::class.java,object : ParsedRequestListener<LoginProviderResponse> {
+                    override fun onResponse(response: LoginProviderResponse?) {
+                        responseHandler(response)
+                    }
 
-                        override fun onError(anError: ANError?) {
-                            errorHandler(anError)
-                        }
-                    })
+                    override fun onError(anError: ANError) {
+                        errorHandler(anError)
+                    }
+                })
         }
     }
 }

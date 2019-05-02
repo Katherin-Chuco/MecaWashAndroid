@@ -1,19 +1,24 @@
 package com.example.mecawash.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.androidnetworking.error.ANError
 import com.example.mecawash.R
-import com.example.mecawash.network.LocalsResponse
 import com.example.mecawash.network.LoginProviderResponse
 import com.example.mecawash.network.NewsApi
 import kotlinx.android.synthetic.main.activity_login_provider.*
 
+
+
 class LoginProviderActivity : AppCompatActivity() {
 
-
+    private val STRING_PREFERENCE = "Session"
+    private val TOKEN = "Token"
+    private val NOMBREPROVIDER = "NombreProvider"
+    private val PROVIDERID = "ProviderId"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +27,7 @@ class LoginProviderActivity : AppCompatActivity() {
         loginProviderButton.setOnClickListener {
             var usernameET = usernameEditText.text.toString()
             var passwordET = passwordEditText.text.toString()
-            //val intento = Intent(this, LoginProviderActivity::class.java)
-            //startActivity(intento)
+
             NewsApi.requestLoginProvider(usernameET,passwordET,
                 {response -> handleResponse(response)},
                 {error -> handleError(error)})
@@ -39,10 +43,22 @@ class LoginProviderActivity : AppCompatActivity() {
             Log.d("MecaWash", response.Message)
             return
         }
-        //locals = response.Data!!
-        //Log.d("MecaWash", "Found ${locals.size} locals")
-        //localsAdapter.locals = locals
-        //localsAdapter.notifyDataSetChanged()
+        var preferences : SharedPreferences = this.getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE)
+
+        val sp = preferences.edit()
+        sp.putString(TOKEN, response.Data!!.Token)
+        sp.putString(NOMBREPROVIDER, response.Data!!.Nombre)
+        sp.putInt(PROVIDERID, response.Data!!.ProviderId)
+        sp.apply()
+
+        if (preferences.getBoolean(STRING_PREFERENCE, false)) {
+            val localIntent = Intent(this, LocalActivity::class.java)
+            startActivity(localIntent)
+            finish()
+        }
+
+        val intento = Intent(this, LocalActivity::class.java)
+        startActivity(intento)
     }
 
     private fun handleError(anError: ANError?) {
