@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
@@ -45,6 +46,10 @@ class LocalActivity : AppCompatActivity() {
         var token = "Bearer " + result.getString(TOKEN, "")
         var providerId = result.getInt(PROVIDERID,0);
         var NameProvider = result.getString(NOMBREPROVIDER, "")
+
+        val messageWelcomeTW: TextView = findViewById(R.id.bienvenidaTextView) as TextView
+        messageWelcomeTW.text = "Bienvenido ${NameProvider}"
+
 
         val url: String = NewsApi.getLocal(providerId)
 
