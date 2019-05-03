@@ -15,6 +15,9 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
 import com.example.mecawash.R
 import com.example.mecawash.activities.HomeProviderActivity
+import com.example.mecawash.activities.RequestStatusAcceptActivity
+import com.example.mecawash.activities.RequestStatusActiveActivity
+import com.example.mecawash.activities.RequestStatusFinishActivity
 import com.example.mecawash.models.Car
 import com.example.mecawash.models.Customer
 import com.example.mecawash.models.Local
@@ -61,7 +64,7 @@ class RequestAdapter(var requests: ArrayList<Request>, val context: Context) : R
                 statusTV.setTextColor(Color.parseColor("#EDB000"))
             }else if(request.Status == "CAN"){
                 statusTV.text = "CANCELADO"
-                statusTV.setTextColor(Color.parseColor("#6058DB"))
+                statusTV.setTextColor(Color.parseColor("#2715E9"))
             }else if(request.Status == "FIN"){
                 statusTV.text = "FINALIZADO"
                 statusTV.setTextColor(Color.parseColor("#3A75FD"))
@@ -75,7 +78,15 @@ class RequestAdapter(var requests: ArrayList<Request>, val context: Context) : R
 
             requestL.setOnClickListener { requestView ->
                 val context = requestView.context
-                context.startActivity(Intent(context, HomeProviderActivity::class.java).putExtras(request.toBundle()))
+                if(request.Status == "ACT"){
+                    context.startActivity(Intent(context, RequestStatusActiveActivity::class.java).putExtras(request.toBundle()))
+                }else if(request.Status == "CAN"){
+                    context.startActivity(Intent(context, RequestStatusFinishActivity::class.java).putExtras(request.toBundle()))
+                }else if(request.Status == "FIN"){
+                    context.startActivity(Intent(context, RequestStatusFinishActivity::class.java).putExtras(request.toBundle()))
+                }else if(request.Status == "ACE"){
+                    context.startActivity(Intent(context, RequestStatusAcceptActivity::class.java).putExtras(request.toBundle()))
+                }
             }
         }
     }
