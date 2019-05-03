@@ -39,6 +39,10 @@ class NewsApi{
             return "${NewsApi.baseUrl}/wamekawash/v6/locals/$id/reservations"
         }
 
+        fun getServices(id:Int):String{
+            return "${NewsApi.baseUrl}/wamekawash/v5/locals/$id/reservations"
+        }
+
         fun requestChangeStatus(key: String, url: String,ReservationId:String,Status:String,MessageProvider:String,  responseHandler: (PostResponse?) -> Unit, errorHandler: (ANError?) -> Unit){
 
             AndroidNetworking.post(url)
@@ -123,6 +127,24 @@ class NewsApi{
                 .getAsObject(LocalsResponse::class.java,
                     object : ParsedRequestListener<LocalsResponse> {
                         override fun onResponse(response: LocalsResponse?) {
+                            responseHandler(response)
+                        }
+
+                        override fun onError(anError: ANError?) {
+                            errorHandler(anError)
+                        }
+                    })
+        }
+
+        fun requestServices(key: String, url: String, responseHandler: (ServiceResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
+            AndroidNetworking.get(url)
+                .addHeaders("Authorization", key)
+                .setPriority(Priority.HIGH)
+                .setTag("MecaWashAndroid")
+                .build()
+                .getAsObject(ServiceResponse::class.java,
+                    object : ParsedRequestListener<ServiceResponse> {
+                        override fun onResponse(response: ServiceResponse?) {
                             responseHandler(response)
                         }
 
