@@ -1,19 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".viewcontrollers.activities.MainActivity">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".activities.MainActivity">
+
+    <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="200dp"
+            android:layout_height="170dp"
+            android:src="@drawable/logomakewash"
+            tools:ignore="MissingConstraints"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/bienvenidoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:text="Bienvenidos a Meca-wash"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/logoImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:textSize="28dp"
+            android:textColor="#000000"/>
+
+    <LinearLayout
+            android:id="@+id/custoprovLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/bienvenidoTextView">
+
+        <ImageButton
+                android:id="@+id/providerImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/mecanic"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@color/colorPrimary"/>
+        <ImageButton
+                android:id="@+id/customerImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toEndOf="@id/providerImageView"
+                android:src="@drawable/customer"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@color/colorAccent"/>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/providerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:text="Proveedor"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/custoprovLinearLayout"
+            android:paddingStart="60dp"
+            android:textSize="15dp"
+            android:textColor="#000000"/>
+
+    <TextView
+            android:id="@+id/customerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:text="Cliente"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/custoprovLinearLayout"
+            app:layout_constraintStart_toEndOf="@id/providerTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:textSize="15dp"
+            android:textColor="#000000"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

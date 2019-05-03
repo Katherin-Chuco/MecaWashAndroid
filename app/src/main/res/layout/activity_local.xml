@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.LocalActivity">
+
+    <TextView
+            android:id="@+id/bienvenidaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="BIENVENIDO"
+            android:textSize="50px"
+            android:paddingTop="20px"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/localsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="200px"
+            app:layout_constraintTop_toBottomOf="@id/bienvenidaTextView"
+            android:layout_marginTop="90px"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="AGREGAR LOCALES"
+            android:layout_marginStart="60px"
+            android:layout_marginEnd="60px"
+            android:layout_marginTop="50px"
+            app:layout_constraintTop_toBottomOf="@id/localsRecyclerView"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
