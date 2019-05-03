@@ -51,9 +51,9 @@ class LocalActivity : AppCompatActivity() {
         messageWelcomeTW.text = "Bienvenido ${NameProvider}"
 
 
-        val url: String = NewsApi.getLocal(providerId)
+        val url: String = NewsApi.getLocals(providerId)
 
-        NewsApi.requestLocal(token,url,
+        NewsApi.requestLocals(token,url,
             {response -> handleResponse(response)},
             {error -> handleError(error)})
 
