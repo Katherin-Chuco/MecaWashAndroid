@@ -10,12 +10,23 @@
     <include
             android:id="@+id/infoReservationInclude"
             layout="@layout/item_data_request"/>
+
+    <TextView
+            android:id="@+id/messageProviderTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:paddingTop="20dp"
+            android:text="DETALLE RESPUESTA"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/infoReservationInclude"/>
+
     <Button
             android:id="@+id/sendTestButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/infoReservationInclude"
+            app:layout_constraintTop_toBottomOf="@id/messageProviderTextView"
             android:layout_marginEnd="60dp"
             android:layout_marginStart="60dp"
             android:text="ENVIAR ENCUESTA"

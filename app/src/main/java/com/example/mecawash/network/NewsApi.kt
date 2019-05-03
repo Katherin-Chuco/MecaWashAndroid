@@ -35,6 +35,31 @@ class NewsApi{
             return "${NewsApi.baseUrl}/wamekawash/v6/locals/$id/reservations"
         }
 
+        fun getChangeStatus(id: Int): String{
+            return "${NewsApi.baseUrl}/wamekawash/v6/locals/$id/reservations"
+        }
+
+        fun requestChangeStatus(key: String, url: String,ReservationId:String,Status:String,MessageProvider:String,  responseHandler: (PostResponse?) -> Unit, errorHandler: (ANError?) -> Unit){
+
+            AndroidNetworking.post(url)
+                .addHeaders("Authorization",key)
+                .addBodyParameter("ReservationId", ReservationId)
+                .addBodyParameter("Status", Status)
+                .addBodyParameter("MessageProvider", MessageProvider)
+                .setTag("MecaWashAndroid")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(PostResponse::class.java,object : ParsedRequestListener<PostResponse> {
+                    override fun onResponse(response: PostResponse?) {
+                        responseHandler(response)
+                    }
+
+                    override fun onError(anError: ANError) {
+                        errorHandler(anError)
+                    }
+                })
+        }
+
         fun requestRequest(key: String, url: String, responseHandler: (RequestResponse?) -> Unit, errorHandler: (ANError?) -> Unit){
             AndroidNetworking.get(url)
                 .addHeaders("Authorization", key)

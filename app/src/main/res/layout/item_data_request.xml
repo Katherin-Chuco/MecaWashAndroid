@@ -96,7 +96,6 @@
             android:layout_marginEnd="10px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fechaTextView"/>
-
     <View
             android:id="@+id/lineMedView"
             android:layout_width="fill_parent"
@@ -122,32 +121,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            android:text="DIRECCION"
+            android:text="COTICACION"
             android:layout_marginTop="10px"
             android:layout_marginEnd="10px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lineMedView"/>
+
     <TextView
-            android:id="@+id/textoAddressTextView"
+            android:id="@+id/textEstadoTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            android:text="FECHA :"
+            android:text="ESTADO :"
             android:layout_marginTop="10px"
             android:layout_marginStart="10px"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textoDomicilioTextView"/>
     <TextView
-            android:id="@+id/addressTextView"
+            android:id="@+id/StatusTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            android:text="00:00"
+            android:text="STATUS"
             android:layout_marginTop="10px"
             android:layout_marginEnd="10px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/DomicilioTextView"/>
+
 
     <View
             android:id="@+id/lineEndView"
@@ -156,6 +157,6 @@
             android:background="@android:color/black"
             tools:ignore="MissingConstraints"
             android:layout_marginTop="10px"
-            app:layout_constraintTop_toBottomOf="@id/addressTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/StatusTextView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
