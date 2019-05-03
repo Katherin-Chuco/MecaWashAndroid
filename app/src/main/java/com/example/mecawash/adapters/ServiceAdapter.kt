@@ -15,7 +15,7 @@ class ServiceAdapter (var services: ArrayList<Service>, val context: Context) : 
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ServiceAdapter.ViewHolder {
         return ServiceAdapter.ViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.item_request, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.item_service, parent, false)
         )
     }
 
@@ -30,18 +30,20 @@ class ServiceAdapter (var services: ArrayList<Service>, val context: Context) : 
     class ViewHolder(serviceView: View) : RecyclerView.ViewHolder(serviceView) {
 
         val categoryTextView = serviceView.categoryTextView
-        val PunctuationRatingBar = serviceView.nameServiceTextView
-        val articleLayout = serviceView.costTextView
+        val nameTextView = serviceView.nameServiceTextView
+        val costTextView = serviceView.costTextView
+        val serviceLayout = serviceView.serviceLayout
 
         fun updateFrom(service: Service) {
 
-            //addressTextView.text = service.Address
-            //PunctuationRatingBar.rating = service.Punctuation.toFloat()
+            categoryTextView.text = service.NameCategory
+            costTextView.text = service.Cost.toString()
+            nameTextView.text = service.Name
 
-            //articleLayout.setOnClickListener { view ->
-            //    val context = view.context
-            //    context.startActivity(Intent(context, HomeProviderActivity::class.java).putExtras(local.toBundle()))
-            //}
+            serviceLayout.setOnClickListener { view ->
+                //val context = view.context
+                //context.startActivity(Intent(context, HomeProviderActivity::class.java).putExtras(local.toBundle()))
+            }
         }
     }
 }

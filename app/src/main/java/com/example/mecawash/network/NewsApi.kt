@@ -18,6 +18,7 @@ class NewsApi{
         //val baseUrl = "http://localhost:50790"
 
         var loginProviderUrl = "$baseUrl/wamekawash/v1/loginprovider"
+        var loginCustomerUrl = "$baseUrl/wamekawash/v1/logincustomer"
 
         fun getCustomerId(id: Int): String{
             return "${NewsApi.baseUrl}/wamekawash/v2/customers/$id"
@@ -40,7 +41,7 @@ class NewsApi{
         }
 
         fun getServices(id:Int):String{
-            return "${NewsApi.baseUrl}/wamekawash/v5/locals/$id/reservations"
+            return "${NewsApi.baseUrl}/wamekawash/v5/locals/$id/services"
         }
 
         fun requestChangeStatus(key: String, url: String,ReservationId:String,Status:String,MessageProvider:String,  responseHandler: (PostResponse?) -> Unit, errorHandler: (ANError?) -> Unit){
@@ -164,6 +165,25 @@ class NewsApi{
                 .build()
                 .getAsObject(LoginProviderResponse::class.java,object : ParsedRequestListener<LoginProviderResponse> {
                     override fun onResponse(response: LoginProviderResponse?) {
+                        responseHandler(response)
+                    }
+
+                    override fun onError(anError: ANError) {
+                        errorHandler(anError)
+                    }
+                })
+        }
+
+        fun requestLoginCustomer(Username: String, Password: String, responseHandler: (LoginCustomerResponse?)-> Unit, errorHandler: (ANError?) -> Unit){
+            var url = NewsApi.loginCustomerUrl
+            AndroidNetworking.post(url)
+                .addBodyParameter("Username", Username)
+                .addBodyParameter("Password", Password)
+                .setTag("MecaWashAndroid")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(LoginCustomerResponse::class.java,object : ParsedRequestListener<LoginCustomerResponse> {
+                    override fun onResponse(response: LoginCustomerResponse?) {
                         responseHandler(response)
                     }
 
