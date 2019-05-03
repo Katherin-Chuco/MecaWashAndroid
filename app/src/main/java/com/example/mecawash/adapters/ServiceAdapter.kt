@@ -37,7 +37,7 @@ class ServiceAdapter (var services: ArrayList<Service>, val context: Context) : 
         fun updateFrom(service: Service) {
 
             categoryTextView.text = service.NameCategory
-            costTextView.text = service.Cost.toString()
+            costTextView.text = "S/. " + service.Cost.toString()
             nameTextView.text = service.Name
 
             serviceLayout.setOnClickListener { view ->
