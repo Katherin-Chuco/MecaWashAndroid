@@ -54,8 +54,8 @@ class LoginCustomerActivity : AppCompatActivity() {
             //finish()
         //}
 
-        //val intento = Intent(this, LocalActivity::class.java)
-        //startActivity(intento)
+        val intento = Intent(this, ProviderClientActivity::class.java)
+        startActivity(intento)
     }
 
     private fun handleError(anError: ANError?) {
