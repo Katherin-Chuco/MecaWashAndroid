@@ -1,4 +1,4 @@
-package com.example.mecawash.fragments
+package com.example.mecawash.controllers.fragments
 
 
 import android.os.Bundle

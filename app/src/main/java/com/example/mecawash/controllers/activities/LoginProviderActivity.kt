@@ -1,4 +1,4 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import android.content.Intent
 import android.content.SharedPreferences

@@ -1,26 +1,18 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.ParsedRequestListener
 import com.example.mecawash.R
 import com.example.mecawash.models.Car
-import com.example.mecawash.network.CarResponse
 
-import kotlinx.android.synthetic.main.activity_reservation_service.*
 import java.util.*
 
 class ReservationServiceActivity : AppCompatActivity() {

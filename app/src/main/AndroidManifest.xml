@@ -12,37 +12,37 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".activities.ReservationServiceActivity"
+                android:name="com.example.mecawash.controllers.activities.ReservationServiceActivity"
                 android:label="@string/title_activity_reservation_service"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".activities.ServiceClientActivity"
+                android:name="com.example.mecawash.controllers.activities.ServiceClientActivity"
                 android:label="@string/title_activity_service_client"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".activities.ProviderClientActivity"
+                android:name="com.example.mecawash.controllers.activities.ProviderClientActivity"
                 android:label="@string/title_activity_provider_client"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".activities.RequestStatusFinishActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.RequestStatusFinishActivity">
         </activity>
-        <activity android:name=".activities.RequestStatusAcceptActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.RequestStatusAcceptActivity">
         </activity>
-        <activity android:name=".activities.RequestStatusActiveActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.RequestStatusActiveActivity">
         </activity>
-        <activity android:name=".activities.HomeProviderActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.HomeProviderActivity">
         </activity>
-        <activity android:name=".activities.LoginCustomerActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.LoginCustomerActivity">
         </activity>
-        <activity android:name=".activities.LoginProviderActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.LoginProviderActivity">
         </activity>
-        <activity android:name=".activities.LocalActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.LocalActivity">
         </activity>
-        <activity android:name=".activities.ProviderActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.ProviderActivity">
         </activity>
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="com.example.mecawash.controllers.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

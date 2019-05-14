@@ -1,14 +1,14 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.mecawash.R
-import com.example.mecawash.fragments.CustomerFragment
-import com.example.mecawash.fragments.ProfileFragment
-import com.example.mecawash.fragments.RequestFragment
-import com.example.mecawash.fragments.ServiceFragment
+import com.example.mecawash.controllers.fragments.CustomerFragment
+import com.example.mecawash.controllers.fragments.ProfileFragment
+import com.example.mecawash.controllers.fragments.RequestFragment
+import com.example.mecawash.controllers.fragments.ServiceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_home_provider.*
 

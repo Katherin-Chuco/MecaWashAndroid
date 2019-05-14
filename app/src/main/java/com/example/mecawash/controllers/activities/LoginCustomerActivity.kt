@@ -1,4 +1,4 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,7 +8,6 @@ import android.util.Log
 import com.androidnetworking.error.ANError
 import com.example.mecawash.R
 import com.example.mecawash.network.LoginCustomerResponse
-import com.example.mecawash.network.LoginProviderResponse
 import com.example.mecawash.network.NewsApi
 import kotlinx.android.synthetic.main.activity_login_customer.*
 

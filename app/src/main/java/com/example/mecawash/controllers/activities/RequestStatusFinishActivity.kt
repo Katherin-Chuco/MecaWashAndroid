@@ -1,4 +1,4 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.example.mecawash.fragments
+package com.example.mecawash.controllers.fragments
 
 
 import android.os.Bundle
@@ -14,13 +14,10 @@ import com.androidnetworking.error.ANError
 
 import com.example.mecawash.R
 import com.example.mecawash.adapters.RequestAdapter
-import com.example.mecawash.adapters.ServiceAdapter
 import com.example.mecawash.models.Local
 import com.example.mecawash.models.Request
-import com.example.mecawash.models.Service
 import com.example.mecawash.network.NewsApi
 import com.example.mecawash.network.RequestResponse
-import com.example.mecawash.network.ServiceResponse
 import kotlinx.android.synthetic.main.fragment_request.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,56 +25,64 @@ import kotlinx.android.synthetic.main.fragment_request.view.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-val TOKEN: String = "Token"
-private val STRING_PREFERENCE = "Session"
+/**
+ * A simple [Fragment] subclass.
+ *
+ */
+class RequestFragment : Fragment() {
 
-class ServiceFragment : Fragment() {
+    var requests =  ArrayList<Request>()
+    lateinit var requestRecyclerView: RecyclerView
+    lateinit var requestAdapter: RequestAdapter
+    lateinit var requestLayoutManager: RecyclerView.LayoutManager
 
-    var services =  ArrayList<Service>()
-    lateinit var serviceRecyclerView: RecyclerView
-    lateinit var serviceAdapter: ServiceAdapter
-    lateinit var serviceLayoutManager: RecyclerView.LayoutManager
+    val TOKEN: String = "Token"
+    private val STRING_PREFERENCE = "Session"
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+
         val view = inflater.inflate(R.layout.fragment_request,container,false)
 
+        //var intent = activity!!.intent ?: return
         var local = Local.from(activity?.intent!!.extras)
 
-        serviceRecyclerView = view.requestRecyclerView
-        services = ArrayList()
-        serviceAdapter = ServiceAdapter(services, view.context)
-        serviceLayoutManager = GridLayoutManager(view.context,1) as RecyclerView.LayoutManager
-        serviceRecyclerView.adapter = serviceAdapter
-        serviceRecyclerView.layoutManager = serviceLayoutManager
+        requestRecyclerView = view.requestRecyclerView
+        requests = ArrayList()
+        requestAdapter = RequestAdapter(requests, view.context)
+        requestLayoutManager = GridLayoutManager(view.context,1) as RecyclerView.LayoutManager
+        requestRecyclerView.adapter = requestAdapter
+        requestRecyclerView.layoutManager = requestLayoutManager
+
 
         val result = this.activity!!.getSharedPreferences(STRING_PREFERENCE, AppCompatActivity.MODE_PRIVATE)
         var token = "Bearer " + result.getString(TOKEN, "")
 
-        var url: String = NewsApi.getServices(local.LocalId)
+        var url: String = NewsApi.getRequests(local.LocalId)
 
-        NewsApi.requestServices(token,url,
+        NewsApi.requestRequest(token,url,
             {response -> handleResponse(response)},
             {error -> handleError(error)})
 
+        // Inflate the layout for this fragment
         return view
     }
-    private fun handleResponse(response: ServiceResponse?) {
+
+    private fun handleResponse(response: RequestResponse?) {
         val error = response!!.Error
         if (error.equals(true)) {
             Log.d("MecaWash", response.Message)
             return
         }
 
-        services = response.Data!!
-        serviceAdapter.services = services
-        serviceAdapter.notifyDataSetChanged()
+        requests = response.Data!!
+        requestAdapter.requests = requests
+        requestAdapter.notifyDataSetChanged()
     }
 
     private fun handleError(anError: ANError?) {
         Log.d("MecaWash", anError!!.message)
     }
+
 
 }

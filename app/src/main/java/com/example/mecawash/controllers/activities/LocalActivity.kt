@@ -1,23 +1,17 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.ParsedRequestListener
 import com.example.mecawash.R
 import com.example.mecawash.adapters.LocalAdapter
 import com.example.mecawash.models.Local
 import com.example.mecawash.network.LocalsResponse
 import com.example.mecawash.network.NewsApi
-import kotlinx.android.synthetic.main.activity_local.*
 
 class LocalActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.mecawash.activities
+package com.example.mecawash.controllers.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
