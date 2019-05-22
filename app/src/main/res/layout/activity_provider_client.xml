@@ -8,16 +8,10 @@
         tools:context=".activities.ProviderClientActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -94,18 +88,10 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary">
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabBackground="@color/colorPrimary">
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detalle"
-            />
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Servicios"
-            />
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

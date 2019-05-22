@@ -49,13 +49,10 @@ class LoginCustomerActivity : AppCompatActivity() {
         sp.apply()
 
         //if (preferences.getBoolean(STRING_PREFERENCE, false)) {
-            //val localIntent = Intent(this, LocalActivity::class.java)
-            //startActivity(localIntent)
-            //finish()
+            val homeClientIntent = Intent(this, ProviderClientActivity::class.java)
+            startActivity(homeClientIntent)
+            finish()
         //}
-
-        val intento = Intent(this, ProviderClientActivity::class.java)
-        startActivity(intento)
     }
 
     private fun handleError(anError: ANError?) {
