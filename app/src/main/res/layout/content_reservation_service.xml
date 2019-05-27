@@ -7,7 +7,9 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_reservation_service"
-        tools:context=".activities.ReservationServiceActivity">
+        tools:context=".activities.ReservationServiceActivity"
+        android:padding="16dp"
+>
     <TextView
             android:id="@+id/titleText"
             android:layout_width="match_parent"

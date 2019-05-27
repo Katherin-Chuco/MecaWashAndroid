@@ -1,5 +1,6 @@
 package com.example.mecawash.network
 
+import android.util.Log
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -43,6 +44,15 @@ class NewsApi{
         fun getServices(id:Int):String{
             return "${NewsApi.baseUrl}/wamekawash/v5/locals/$id/services"
         }
+
+        fun getLocal(id: Int): String {
+            return "${NewsApi.baseUrl}/wamekawash/v4/providers/1/locals/$id"
+        }
+
+        fun sendReservation(id: Int): String {
+            return "${NewsApi.baseUrl}/wamekawash/v6/customers/$id/reservations"
+        }
+
 
         fun requestChangeStatus(key: String, url: String,ReservationId:String,Status:String,MessageProvider:String,  responseHandler: (PostResponse?) -> Unit, errorHandler: (ANError?) -> Unit){
 
@@ -119,6 +129,23 @@ class NewsApi{
                     })
         }
 
+        fun requestLocal(key: String, url: String, responseHandler: (LocalsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
+            AndroidNetworking.get(url)
+                .addHeaders("Authorization", key)
+                .setPriority(Priority.HIGH)
+                .setTag("MecaWashAndroid")
+                .build()
+                .getAsObject(LocalsResponse::class.java,
+                    object : ParsedRequestListener<LocalsResponse> {
+                        override fun onResponse(response: LocalsResponse?) {
+                            responseHandler(response)
+                        }
+
+                        override fun onError(anError: ANError?) {
+                            errorHandler(anError)
+                        }
+                    })
+        }
         fun requestLocals(key: String, url: String, responseHandler: (LocalsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
             AndroidNetworking.get(url)
                 .addHeaders("Authorization", key)
@@ -192,5 +219,25 @@ class NewsApi{
                     }
                 })
         }
+
+        fun requestReservation(key: String, url: String, parameter: Map<String, String>?, responseHandler: (PostResponse?)-> Unit, errorHandler: (ANError?) -> Unit){
+
+            AndroidNetworking.post(url)
+                .addHeaders("Authorization",key)
+                .addBodyParameter(parameter)
+                .setTag("MecaWashAndroid")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(PostResponse::class.java,object : ParsedRequestListener<PostResponse> {
+                    override fun onResponse(response: PostResponse?) {
+                        responseHandler(response)
+                    }
+
+                    override fun onError(anError: ANError) {
+                        errorHandler(anError)
+                    }
+                })
+        }
+
     }
 }
