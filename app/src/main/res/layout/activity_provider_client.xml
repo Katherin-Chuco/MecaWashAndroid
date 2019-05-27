@@ -8,24 +8,29 @@
         tools:context=".activities.ProviderClientActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+    >
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:background="?attr/colorPrimary"/>
 
         <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+        >
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:id="@+id/cardMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp"
+            >
 
                 <TextView
                         android:id="@+id/nameText"
@@ -39,7 +44,6 @@
                         android:layout_marginTop="20dp"
                         android:textSize="30sp" android:textStyle="bold"
                         android:clickable="true"
-                        android:onClick="onGo"
 
                         android:textColor="@android:color/black"/>
                 <ImageButton
@@ -52,41 +56,19 @@
                         android:backgroundTint="#00F7F3F3"/>
 
                 <RatingBar
-                        android:id="@+id/ratingBar"
+                        android:id="@+id/ratingBarClient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/ratingText"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/nameText"
-                        android:textAlignment="center"
-                        android:rating="3.5"
                         android:layout_marginTop="10dp"
                         android:stepSize="1"
                         android:numStars="5"
 
-                        style="@style/Widget.AppCompat.RatingBar.Small"
-                />
-                <TextView
-                        android:id="@+id/ratingText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toEndOf="@id/ratingBar"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/nameText"
-                        android:text="3.5"
-                        android:layout_marginTop="5dp"
-                        android:textSize="14sp" android:textColor="@android:color/black"/>
-                <TextView
-                        android:id="@+id/descriptionText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ratingText"
-                        android:text="Servicio especializado en lavado y limpieza al detalle de vehículos multimarca"
-                        android:textAlignment="center"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@android:color/black"/>
+                        style="?android:attr/ratingBarStyleSmall"/>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -94,18 +76,10 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary">
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabBackground="@color/colorPrimary">
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detalle"
-            />
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Servicios"
-            />
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

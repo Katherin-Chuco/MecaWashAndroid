@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".fragments.ProviderClientInfoFragment"
+             android:layout_gravity="center"
+>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       android:padding="15dp"
+    >
+
+        <TextView
+                android:id="@+id/directionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dirección:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/directionValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Av. Tommas Valle "
+                app:layout_constraintTop_toBottomOf="@id/directionTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+        />
+
+        <TextView
+                android:id="@+id/phoneTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/directionValueTextView"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+        />
+        <TextView
+                android:id="@+id/phoneValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddsafa"
+                app:layout_constraintTop_toBottomOf="@id/phoneTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+        />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
