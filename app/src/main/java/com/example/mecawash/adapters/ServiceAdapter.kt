@@ -1,11 +1,13 @@
 package com.example.mecawash.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mecawash.R
+import com.example.mecawash.activities.ServiceClientActivity
 import com.example.mecawash.models.Request
 import com.example.mecawash.models.Service
 import kotlinx.android.synthetic.main.item_service.view.*
@@ -41,8 +43,9 @@ class ServiceAdapter (var services: ArrayList<Service>, val context: Context) : 
             nameTextView.text = service.Name
 
             serviceLayout.setOnClickListener { view ->
-                //val context = view.context
-                //context.startActivity(Intent(context, HomeProviderActivity::class.java).putExtras(local.toBundle()))
+                val context = view.context
+                context.startActivity(Intent(context, ServiceClientActivity::class.java).putExtras(service.toBundle()))
+                //context.startActivity(Intent(context, ServiceClientActivity::class.java).putExtra("service", service as Serializable))
             }
         }
     }
