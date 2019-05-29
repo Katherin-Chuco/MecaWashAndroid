@@ -13,6 +13,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".activities.HomeCustomerActivity"
+                android:label="@string/title_activity_home_customer">
+        </activity>
+        <activity
                 android:name=".activities.ReservationServiceActivity"
                 android:label="@string/title_activity_reservation_service"
                 android:theme="@style/AppTheme.NoActionBar">

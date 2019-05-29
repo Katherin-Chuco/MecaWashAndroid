@@ -10,4 +10,9 @@
     <string name="title_activity_provider_client">ProviderClientActivity</string>
     <string name="title_activity_service_client">ServiceClientActivity</string>
     <string name="title_activity_reservation_service">ReservationServiceActivity</string>
+    <string name="title_activity_home_customer">HomeCustomerActivity</string>
+    <string name="title_customer_home">Home</string>
+    <string name="title_customer_request">Solicitudes</string>
+    <string name="title_customer_favorites">Favoritos</string>
+    <string name="title_customer_profile">Perfil</string>
 </resources>

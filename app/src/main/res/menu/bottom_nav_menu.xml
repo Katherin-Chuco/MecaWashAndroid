@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_customer_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/title_customer_home"/>
+
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_customer_requests"
+            android:icon="@drawable/ic_swap_horiz_black_24dp"
+            android:title="@string/title_customer_request"/>
+
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_customer_favorite"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/title_customer_favorites"/>
+
+    <item
+            tools:ignore="MenuTitle"
+            android:id="@+id/navigation_customer_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/title_customer_profile"/>
+
+</menu>
