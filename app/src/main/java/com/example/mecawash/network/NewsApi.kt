@@ -29,6 +29,10 @@ class NewsApi{
             return "${NewsApi.baseUrl}/wamekawash/v7/customers/$idcustomer/cars/$idcar"
         }
 
+        fun getCustomerCars(idcustomer:Int):String{
+            return "${NewsApi.baseUrl}/wamekawash/v7/customers/$idcustomer/cars"
+        }
+
         fun getLocals(id: Int) : String{
             return "${NewsApi.baseUrl}/wamekawash/v4/providers/$id/locals"
         }
@@ -129,6 +133,24 @@ class NewsApi{
                     })
         }
 
+        fun requestCars(key: String, url: String, responseHandler: (CarsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
+            AndroidNetworking.get(url)
+                .addHeaders("Authorization", key)
+                .setPriority(Priority.HIGH)
+                .setTag("MecaWashAndroid")
+                .build()
+                .getAsObject(CarsResponse::class.java,
+                    object : ParsedRequestListener<CarsResponse> {
+                        override fun onResponse(response: CarsResponse?) {
+                            responseHandler(response)
+                        }
+
+                        override fun onError(anError: ANError?) {
+                            errorHandler(anError)
+                        }
+                    })
+        }
+
         fun requestLocal(key: String, url: String, responseHandler: (LocalsResponse?) -> Unit, errorHandler: (ANError?) -> Unit) {
             AndroidNetworking.get(url)
                 .addHeaders("Authorization", key)
@@ -220,11 +242,32 @@ class NewsApi{
                 })
         }
 
-        fun requestReservation(key: String, url: String, parameter: Map<String, String>?, responseHandler: (PostResponse?)-> Unit, errorHandler: (ANError?) -> Unit){
+        fun requestReservation(key: String, url: String,
+                               customerId: Int,
+                               localId: Int,
+                               serviceId: Int,
+                               schedule: String,
+                               detail: String,
+                               status: String,
+                               carId: Int,
+                               cotización: String,
+                               fecha: String,
+                               messageProvider: String,
+                               responseHandler: (PostResponse?)-> Unit, errorHandler: (ANError?) -> Unit)
+        {
 
             AndroidNetworking.post(url)
                 .addHeaders("Authorization",key)
-                .addBodyParameter(parameter)
+                .addBodyParameter("CustomerId",customerId.toString())
+                .addBodyParameter("LocalId",localId.toString())
+                .addBodyParameter("ServiceId",serviceId.toString())
+                .addBodyParameter("Schedule",schedule)
+                .addBodyParameter("Detail",detail)
+                .addBodyParameter("Status",status)
+                .addBodyParameter("CarId",carId.toString())
+                .addBodyParameter("Cotización",cotización)
+                .addBodyParameter("Fecha",fecha)
+                .addBodyParameter("MessageProvider",messageProvider)
                 .setTag("MecaWashAndroid")
                 .setPriority(Priority.MEDIUM)
                 .build()
