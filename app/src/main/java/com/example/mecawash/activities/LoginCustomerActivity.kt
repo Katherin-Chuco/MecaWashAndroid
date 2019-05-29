@@ -67,7 +67,7 @@ class LoginCustomerActivity : AppCompatActivity(), GoogleApiClient.OnConnectionF
         sp.putInt(CUSTOMERID, response.Data!!.CustomerId)
         sp.apply()
 
-        val intento = Intent(this, ProviderClientActivity::class.java)
+        val intento = Intent(this, HomeCustomerActivity::class.java)
         startActivity(intento)
     }
 
@@ -105,7 +105,7 @@ class LoginCustomerActivity : AppCompatActivity(), GoogleApiClient.OnConnectionF
     private fun updateUI(account: GoogleSignInAccount?) {
         if(account!=null){
             Toast.makeText(applicationContext, account.displayName+"\n"+account.email, Toast.LENGTH_LONG).show();
-            val intento = Intent(this, ProviderClientActivity::class.java)
+            val intento = Intent(this, HomeCustomerActivity::class.java)
             startActivity(intento)
         }
 

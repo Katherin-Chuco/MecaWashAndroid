@@ -37,6 +37,10 @@
         </activity>
         <activity android:name=".activities.LoginCustomerActivity">
         </activity>
+        <activity android:name=".activities.HomeCustomerActivity">
+        </activity>
+        <activity android:name=".activities.ServiceCustomerActivity">
+        </activity>
         <activity android:name=".activities.LoginProviderActivity">
         </activity>
         <activity android:name=".activities.LocalActivity">
