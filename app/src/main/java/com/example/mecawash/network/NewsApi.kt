@@ -41,6 +41,10 @@ class NewsApi{
             return "${NewsApi.baseUrl}/wamekawash/v6/locals/$id/reservations"
         }
 
+        fun getCustomersRequests(id: Int):String{
+            return "${NewsApi.baseUrl}/wamekawash/v6/customers/$id/reservations"
+        }
+
         fun getChangeStatus(id: Int): String{
             return "${NewsApi.baseUrl}/wamekawash/v6/locals/$id/reservations"
         }
@@ -55,6 +59,10 @@ class NewsApi{
 
         fun sendReservation(id: Int): String {
             return "${NewsApi.baseUrl}/wamekawash/v6/customers/$id/reservations"
+        }
+
+        fun readService(localId: Int, serviceId: Int): String {
+            return "${NewsApi.baseUrl}/wamekawash/v5/locals/$localId/services/$serviceId"
         }
 
 

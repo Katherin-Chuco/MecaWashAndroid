@@ -47,13 +47,13 @@ class ReservationServiceActivity : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 
-        mDisplayDate!!.setText(""+ day + "-" + month + "-" + year)
+        mDisplayDate!!.setText(""+ month + "-" + day + "-" + year)
 
         mDisplayDate!!.setOnClickListener {
             val monthDatePickerDialog = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay ->
-                    mDisplayDate!!.setText(""+ mDay + "-" + mMonth + "-" + mYear)
+                    mDisplayDate!!.setText(""+ mMonth + "-" + mDay + "-" + mYear)
                 },
                 year,
                 month,
@@ -144,6 +144,9 @@ class ReservationServiceActivity : AppCompatActivity() {
         }
 
         Log.d("ReservationSuccess",response.Message )
+
+        val intento = Intent(this, HomeCustomerActivity::class.java)
+        startActivity(intento)
     }
 
     private fun handleError(anError: ANError?) {

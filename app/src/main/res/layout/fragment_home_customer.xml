@@ -2,13 +2,89 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context=".fragments.HomeCustomerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+        <ImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="200dp"
+                android:layout_height="170dp"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+        />
+
+        <TextView
+                android:id="@+id/bienvenidoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:text=""
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/logoImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="28dp"
+                android:textColor="#000000"/>
+
+        <LinearLayout
+                android:id="@+id/custohomeLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/bienvenidoTextView">
+
+            <ImageButton
+                    android:id="@+id/carwashImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/automobile"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorPrimary"
+                    android:onClick="onService"
+            />
+            <ImageButton
+                    android:id="@+id/customerImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    app:layout_constraintStart_toEndOf="@id/carwashImageView"
+                    android:src="@drawable/carmechanic"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorAccent"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/providerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:text="Car Wash"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/custohomeLinearLayout"
+                android:paddingStart="60dp"
+                android:textSize="15dp"
+                android:textColor="#000000"/>
+
+        <TextView
+                android:id="@+id/customerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:text="Mecánica"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/custohomeLinearLayout"
+                app:layout_constraintStart_toEndOf="@id/providerTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="65dp"
+                android:textSize="15dp"
+                android:textColor="#000000"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
