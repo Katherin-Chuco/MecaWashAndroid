@@ -7,6 +7,7 @@ import java.sql.Time
 data class Request(val ReservationId:Int,
                    val CustomerId: Int,
                    val NameCustomer:String?,
+                   val NameService: String?,
                    val LocalId: Int,
                    val ServiceId: Int,
                    val Schedule: String?,
@@ -25,6 +26,7 @@ data class Request(val ReservationId:Int,
                 bundle.getInt("ReservationId")!!,
                 bundle.getInt("CustomerId")!!,
                 bundle.getString("NameCustomer")!!,
+                bundle.getString("NameService")!!,
                 bundle.getInt("LocalId")!!,
                 bundle.getInt("ServiceId")!!,
                 bundle.getString("Schedule")!!,
@@ -46,6 +48,7 @@ data class Request(val ReservationId:Int,
         bundle.putInt("ReservationId",ReservationId)
         bundle.putInt("CustomerId",CustomerId)
         bundle.putString("NameCustomer",NameCustomer)
+        bundle.putString("NameService",NameCustomer)
         bundle.putInt("LocalId",LocalId)
         bundle.putInt("ServiceId",ServiceId)
         bundle.putString("Schedule",Schedule)
