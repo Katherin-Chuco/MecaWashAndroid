@@ -1,7 +1,9 @@
 package com.example.mecawash.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
@@ -46,5 +48,11 @@ class HomeCustomerActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.content, getFragmentFor(item))
             .commit() > 0
+    }
+
+    fun onService (view: View){
+
+        val intent = Intent(this, ProviderClientActivity::class.java)
+        startActivity(intent)
     }
 }

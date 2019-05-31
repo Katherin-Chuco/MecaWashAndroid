@@ -2,6 +2,7 @@ package com.example.mecawash.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -56,9 +57,29 @@ class RequestAdapter(var requests: ArrayList<Request>, val context: Context) : R
 
         fun updateFrom(request: Request) {
 
-            dateTV.text = request.Fecha
-            carTV.text = request.NameCar + " - " + request.Placa
-            customerTV.text = request.NameCustomer
+            if (request.Fecha.isNullOrEmpty()) {
+                dateTV.text = "06/06/19"
+
+            }else {
+                dateTV.text = request.Fecha
+            }
+
+            if (request.NameCar.isNullOrEmpty()) {
+
+                carTV.text = request.NameService
+
+            } else {
+                carTV.text = request.NameCar + " - " + request.Placa
+            }
+
+            if (request.NameCustomer.isNullOrEmpty()) {
+                customerTV.text = ""
+
+            } else {
+                customerTV.text = request.NameCustomer
+            }
+
+
             if(request.Status == "ACT"){
                 statusTV.text = "ACTIVO"
                 statusTV.setTextColor(Color.parseColor("#EDB000"))
