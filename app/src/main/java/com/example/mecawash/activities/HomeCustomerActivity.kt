@@ -52,7 +52,7 @@ class HomeCustomerActivity : AppCompatActivity() {
 
     fun onService (view: View){
 
-        val intent = Intent(this, ProviderClientActivity::class.java)
+        val intent = Intent(this, ClientProvidersActivity::class.java)
         startActivity(intent)
     }
 }
