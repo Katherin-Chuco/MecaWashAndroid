@@ -47,6 +47,9 @@ class LoginCustomerActivity : AppCompatActivity(), GoogleApiClient.OnConnectionF
             var usernameET = usernameEditText.text.toString()
             var passwordET = passwordEditText.text.toString()
 
+            usernameET = "chemalonso96"
+            passwordET = "12345678"
+
             NewsApi.requestLoginCustomer(usernameET,passwordET,
                 {response -> handleResponse(response)},
                 {error -> handleError(error)})

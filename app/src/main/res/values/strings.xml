@@ -2,15 +2,15 @@
     <string name="app_name">MecaWash</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Próximamente...</string>
     <string name="title_solicitudes">Solicitud</string>
     <string name="title_servicios">Servicios</string>
     <string name="title_cliente">Clientes</string>
     <string name="title_perfil">Perfil</string>
-    <string name="title_activity_provider_client">ProviderClientActivity</string>
-    <string name="title_activity_service_client">ServiceClientActivity</string>
-    <string name="title_activity_reservation_service">ReservationServiceActivity</string>
-    <string name="title_activity_home_customer">HomeCustomerActivity</string>
+    <string name="title_activity_provider_client"></string>
+    <string name="title_activity_service_client"></string>
+    <string name="title_activity_reservation_service">Reserva</string>
+    <string name="title_activity_home_customer">Meca Wash</string>
     <string name="title_customer_home">Home</string>
     <string name="title_customer_request">Solicitudes</string>
     <string name="title_customer_favorites">Favoritos</string>
