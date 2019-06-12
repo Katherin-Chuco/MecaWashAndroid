@@ -48,6 +48,10 @@ class LoginProviderActivity : AppCompatActivity(), GoogleApiClient.OnConnectionF
             var usernameET = usernameEditText.text.toString()
             var passwordET = passwordEditText.text.toString()
 
+            usernameET = "10738765601"
+            passwordET = "12345678"
+
+
             NewsApi.requestLoginProvider(usernameET,passwordET,
                 {response -> handleResponse(response)},
                 {error -> handleError(error)})

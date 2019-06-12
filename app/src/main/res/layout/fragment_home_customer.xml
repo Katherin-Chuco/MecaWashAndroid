@@ -7,51 +7,69 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="match_parent">
-        <ImageView
-                android:id="@+id/logoImageView"
-                android:layout_width="200dp"
-                android:layout_height="170dp"
-                tools:ignore="MissingConstraints"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-        />
 
-        <TextView
-                android:id="@+id/bienvenidoTextView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/searchConstraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                android:text=""
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/logoImageView"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="10dp"
-                android:textSize="28dp"
-                android:textColor="#000000"/>
+                android:layout_marginTop="30dp"
+        >
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bienvenidoTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/serviceSearchView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:hint="¿Qué servicio estás buscando?"
+            />
+
+            <androidx.appcompat.widget.SearchView
+                    android:id="@+id/serviceSearchView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/bienvenidoTextView"
+
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <LinearLayout
                 android:id="@+id/custohomeLinearLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
-                app:layout_constraintTop_toBottomOf="@id/bienvenidoTextView">
+                app:layout_constraintTop_toBottomOf="@id/searchConstraintLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="35dp"
+        >
 
             <ImageButton
                     android:id="@+id/carwashImageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     app:layout_constraintStart_toStartOf="parent"
                     android:src="@drawable/automobile"
                     android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
                     android:background="@color/colorPrimary"
                     android:onClick="onService"
+                    android:layout_marginEnd="20px"
             />
             <ImageButton
                     android:id="@+id/customerImageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     app:layout_constraintStart_toEndOf="@id/carwashImageView"
                     android:src="@drawable/carmechanic"
                     android:scaleType="fitCenter"
@@ -83,6 +101,65 @@
                 app:layout_constraintStart_toEndOf="@id/providerTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="65dp"
+                android:textSize="15dp"
+                android:textColor="#000000"/>
+
+        <LinearLayout
+                android:id="@+id/secondhomeLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/customerTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+        >
+
+            <ImageButton
+                    android:id="@+id/paintImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/spraygun"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorPrimary"
+                    android:onClick="onService"
+                    android:layout_marginEnd="20px"
+            />
+            <ImageButton
+                    android:id="@+id/tuningImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_constraintStart_toEndOf="@id/paintImageView"
+                    android:src="@drawable/carpainting"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorAccent"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/paitingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:text="Planchado y Pintura"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/secondhomeLinearLayout"
+                android:paddingStart="33dp"
+                android:textSize="15dp"
+                android:textColor="#000000"/>
+
+        <TextView
+                android:id="@+id/tunningTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:text="Tuning"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/secondhomeLinearLayout"
+                app:layout_constraintStart_toEndOf="@id/paitingTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="0dp"
                 android:textSize="15dp"
                 android:textColor="#000000"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
