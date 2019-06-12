@@ -18,17 +18,14 @@
         </activity>
         <activity
                 android:name=".activities.ReservationServiceActivity"
-                android:label="@string/title_activity_reservation_service"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".activities.ServiceClientActivity"
-                android:label="@string/title_activity_service_client"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".activities.ProviderClientActivity"
-                android:label="@string/title_activity_provider_client"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".activities.RequestStatusFinishActivity">
